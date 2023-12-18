@@ -22,17 +22,13 @@ This is a simple Yoga Class Admission System designed for monthly classes. Parti
    ```bash
    git clone https://github.com/Nehul-Krushna/yoga-app.git
 
-2. Change the Directory: 
-   ```bash
-   cd yoga_class_admission
-
-3. Set up the PostgreSQL database and update the database configuration in server.js.
+2. Set up the PostgreSQL database and update the database configuration in server.js.
    
-4. Run the server
+3. Run the server
    ```bash
    node server.js
 
-5. Open the application in your browser: http://localhost:3000
+4. Open the application in your browser: http://localhost:3000
 
 ## Documentation
 
