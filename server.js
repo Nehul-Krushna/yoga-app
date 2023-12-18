@@ -57,7 +57,7 @@ app.post('/submit', async (req, res) => {
     }
   } catch (error) {
     console.error('Error:', error);
-    res.status(500).json({ message: 'An error occurred. Please try again.' });
+    res.status(500).json({ message: 'An error occurred. Please try again.'+error });
   }
 });
 
