@@ -3,7 +3,6 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 5432;
 
 // Configure database connection (you'll need to replace this with your actual configuration)
 const { Pool } = require('pg');
@@ -23,7 +22,6 @@ app.get('/', (req, res) => {
 
 app.post('/submit', async (req, res) => {
   try {
-    console.log("in try")
     // Validate and process form data
     const { name, age, mobile, batch, month } = req.body;
 
@@ -69,6 +67,6 @@ async function completePayment(participantId) {
   return true;
 }
 
-app.listen(port, () => {
-  console.log(`Server is running at http://localhost:${port}`);
+app.listen(process.env.PORT, () => {
+  console.log(`Server is running at http://localhost:${process.env.PORT}`);
 });
