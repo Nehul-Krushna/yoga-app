@@ -3,7 +3,7 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const port = 3000;
+const port = process.env.PORT || 3000;
 
 // Configure database connection (you'll need to replace this with your actual configuration)
 const { Client } = require('pg');
@@ -22,7 +22,7 @@ app.use(bodyParser.json());
 app.use(express.static(__dirname));
 
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'index.html'));
+  res.sendFile(path.join(__dirname, 'public/index.html'));
 });
 
 app.post('/submit', async (req, res) => {
