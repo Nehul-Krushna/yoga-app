@@ -2,7 +2,7 @@
 
 The following Entity-Relationship (ER) diagram represents the database schema for the Yoga Class Admission System.
 
-![ER Diagram][ERDiagram.PNG]
+![ER Diagram][./docs/ERDiagram.PNG]
 
 ## Participants Table
 
