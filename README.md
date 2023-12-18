@@ -34,6 +34,6 @@ This is a simple Yoga Class Admission System designed for monthly classes. Parti
 
 5. Open the application in your browser: http://localhost:3000
 
-## Database Schema
+## Documentation
 
-For details on the database schema, refer to the ER diagram in the docs/ directory.
+- [Database Schema](docs/database_schema.md)
