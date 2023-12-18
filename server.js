@@ -3,14 +3,15 @@ const path = require('path');
 const bodyParser = require('body-parser');
 const cors = require('cors');
 const app = express();
-const port = process.env.PORT || 3000;
+const port = process.env.PORT || 5432;
 
 // Configure database connection (you'll need to replace this with your actual configuration)
 const { Pool } = require('pg');
 require('dotenv').config()
+
 const client = new Pool({
   connectionString: "postgres://default:CDozMgt9Rm3c@ep-blue-mouse-54237972-pooler.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb?sslmode=require",
-})
+});
 app.use(cors());
 app.use(bodyParser.json());
 
@@ -22,6 +23,7 @@ app.get('/', (req, res) => {
 
 app.post('/submit', async (req, res) => {
   try {
+    console.log("in try")
     // Validate and process form data
     const { name, age, mobile, batch, month } = req.body;
 
