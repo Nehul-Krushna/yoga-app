@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+  <link rel="stylesheet" href="styles.css">
+  <title>Yoga Class Admission Form</title>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center">Yoga Class Admission Form</h1>
+  
+    <form id="enrollmentForm" class="needs-validation" novalidate>
+      <div class="form-group">
+        <label for="name">Name:</label>
+        <input type="text" class="form-control" id="name" name="name">
+      </div>
+  
+      <div class="form-group">
+        <label for="age">Age:</label>
+        <input type="number" class="form-control" id="age" name="age" min="18" max="65">
+      </div>
+  
+      <div class="form-group">
+        <label for="mobile">Mobile Number:</label>
+        <input type="tel" class="form-control" id="mobile" name="mobile" >
+      </div>
+  
+      <div class="form-group">
+        <label for="batch">Preferred Batch:</label>
+        <select class="form-control" id="batch" name="batch">
+          <option value="1">6-7AM</option>
+          <option value="2">7-8AM</option>
+          <option value="3">8-9AM</option>
+          <option value="4">5-6PM</option>
+        </select>
+      </div>
+  
+      <div class="form-group">
+        <label for="month">Month:</label>
+        <select class="form-control" id="month" name="month">
+          <option value="January">January</option>
+          <option value="February">February</option>
+          <option value="March">March</option>
+          <option value="April">April</option>
+          <option value="May">May</option>
+          <option value="June">June</option>
+          <option value="July">July</option>
+          <option value="August">August</option>
+          <option value="September">September</option>
+          <option value="October">October</option>
+          <option value="November">November</option>
+          <option value="December">December</option>
+        </select>
+      </div>
+      <div class="text-center">
+        <button type="button" class="btn btn-primary" onclick="submitForm()">Register</button>
+      </div>
+    </form>
+  </div>
+  <script>
+    function submitForm() {
+      const form = document.getElementById('enrollmentForm');
+      if(form.checkValidity()){
+        const formData = new FormData(form);
+
+      fetch('http://localhost:3000/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(Object.fromEntries(formData)),
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert(data.message);
+      })
+      .catch(error => {
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
+      });
+      }
+      
+    }
+  </script>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+  
+</body>
+</html>
