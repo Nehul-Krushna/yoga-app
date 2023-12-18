@@ -6,10 +6,14 @@ const app = express();
 const port = process.env.PORT || 3000;
 
 // Configure database connection (you'll need to replace this with your actual configuration)
-const { Pool } = require('pg');
-const client = new Pool({
-  connectionString: process.env.POSTGRES_URL + "?sslmode=require",
-})
+const { Client } = require('pg');
+const client = new Client({
+  user: 'postgres',
+  host: 'localhost',
+  database: 'yoga_class_admission',
+  password: 'admin',
+  port: 5000,
+});
 client.connect();
 
 app.use(cors());
