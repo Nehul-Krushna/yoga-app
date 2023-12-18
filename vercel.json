@@ -1,10 +1,19 @@
 {
     "version": 2,
     "builds": [
-      { "src": "server.js", "use": "@vercel/node" },
-      { "src": "public/**/*", "use": "@vercel/static" }
-    ],
-    "routes": [{ "src": "/submit", "dest": "/server.js" }],
+        {
+          "src": "server.js",
+          "use": "@vercel/node"
+        },
+        {
+          "src": "public/**/*",
+          "use": "@now/static"
+        }
+      ],
+      "routes": [
+        { "src": "/submit", "dest": "/server.js" },
+        { "src": "/(.*)", "dest": "/public/$1" }
+      ],
     "env": {
       "PGUSER": "your_pg_user",
       "PGHOST": "your_pg_host",
