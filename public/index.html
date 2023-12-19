@@ -20,7 +20,7 @@
   
       <div class="form-group">
         <label for="age">Age:</label>
-        <input type="number" class="form-control" id="age" name="age" min="18" max="65">
+        <input type="number" class="form-control" id="age" name="age">
       </div>
   
       <div class="form-group">
@@ -66,7 +66,7 @@
       if(form.checkValidity()){
         const formData = new FormData(form);
 
-      fetch('http://localhost:5432/submit', {
+      fetch('/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
