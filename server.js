@@ -9,7 +9,7 @@ const { Pool } = require('pg');
 require('dotenv').config()
 
 const client = new Pool({
-  connectionString: "postgres://default:CDozMgt9Rm3c@ep-blue-mouse-54237972-pooler.ap-southeast-1.postgres.vercel-storage.com:5432/verceldb?sslmode=require",
+  connectionString: process.env.POSTGRES_URL + "?sslmode=require",
 });
 app.use(cors());
 app.use(bodyParser.json());
